@@ -1,10 +1,665 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Whiff Studios</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Whiff Studios</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111315;
+      color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* -------------------------
+       HEADER / NAVIGATION
+    ------------------------- */
+
+    header {
+      background: #0b0d0e;
+      border-bottom: 1px solid #333;
+      padding: 22px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      color: #c99a45;
+    }
+
+    .tagline {
+      color: #aaa;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #c99a45;
+    }
+
+    /* -------------------------
+       HERO
+    ------------------------- */
+
+    .hero {
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      padding: 80px 8%;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(10, 12, 13, 0.98) 0%,
+          rgba(10, 12, 13, 0.90) 45%,
+          rgba(10, 12, 13, 0.45) 100%
+        ),
+        url("studio-background.jpg");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: #c99a45;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #d2d2d2;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 24px;
+      border: 1px solid #c99a45;
+      margin-right: 12px;
+      margin-bottom: 10px;
+      transition: 0.2s;
+    }
+
+    .button-primary {
+      background: #c99a45;
+      color: #111;
+    }
+
+    .button:hover {
+      background: #e1b969;
+      color: #111;
+    }
+
+    /* -------------------------
+       THREE FEATURE BOXES
+    ------------------------- */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 50px 8%;
+      background: #15181a;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+    }
+
+    .feature {
+      padding: 25px 35px;
+      border-right: 1px solid #333;
+    }
+
+    .feature:last-child {
+      border-right: none;
+    }
+
+    .feature-icon {
+      font-size: 30px;
+      color: #c99a45;
+      margin-bottom: 15px;
+    }
+
+    .feature h2 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #bbb;
+      margin-bottom: 15px;
+    }
+
+    .feature a {
+      color: #c99a45;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* -------------------------
+       ABOUT
+    ------------------------- */
+
+    .about {
+      padding: 80px 8%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      color: #c3c3c3;
+      margin-bottom: 18px;
+      font-size: 17px;
+    }
+
+    .about-box {
+      background: #191c1f;
+      border: 1px solid #34383b;
+      padding: 40px;
+    }
+
+    .about-box h3 {
+      color: #c99a45;
+      margin-bottom: 15px;
+    }
+
+    /* -------------------------
+       JOURNAL
+    ------------------------- */
+
+    .journal {
+      padding: 70px 8%;
+      background: #15181a;
+    }
+
+    .section-title {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-intro {
+      color: #aaa;
+      margin-bottom: 35px;
+    }
+
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .journal-card {
+      background: #1c2022;
+      border: 1px solid #34383b;
+      padding: 28px;
+    }
+
+    .journal-date {
+      color: #c99a45;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .journal-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .journal-card p {
+      color: #aaa;
+      margin-bottom: 18px;
+    }
+
+    .journal-card a {
+      color: #c99a45;
+      font-weight: bold;
+    }
+
+    /* -------------------------
+       NEWSLETTER
+    ------------------------- */
+
+    .newsletter {
+      text-align: center;
+      padding: 80px 8%;
+    }
+
+    .newsletter h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .newsletter p {
+      color: #bbb;
+      max-width: 600px;
+      margin: 0 auto 25px auto;
+    }
+
+    .newsletter-form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .newsletter-form input {
+      width: 320px;
+      padding: 14px;
+      border: 1px solid #555;
+      background: #191c1f;
+      color: white;
+    }
+
+    .newsletter-form button {
+      border: none;
+      padding: 14px 24px;
+      background: #c99a45;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* -------------------------
+       FOOTER
+    ------------------------- */
+
+    footer {
+      background: #090b0c;
+      border-top: 1px solid #333;
+      padding: 30px 8%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      color: #888;
+      font-size: 14px;
+    }
+
+    .footer-brand {
+      color: #c99a45;
+      font-weight: bold;
+    }
+
+    /* -------------------------
+       MOBILE
+    ------------------------- */
+
+    @media (max-width: 800px) {
+
+      header {
+        gap: 20px;
+      }
+
+      nav {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .feature {
+        border-right: none;
+        border-bottom: 1px solid #333;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .journal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
 </head>
+
 <body>
-    <h1>Whiff Studios</h1>
-    <p>Welcome to Whiff Studios.</p>
+
+  <!-- =====================================
+       HEADER
+  ====================================== -->
+
+  <header>
+
+    <div>
+      <div class="brand">
+        <span>Whiff</span>Studios
+      </div>
+
+      <div class="tagline">
+        GAME & APP DEVELOPMENT
+      </div>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#journal">Journal</a>
+      <a href="#newsletter">Newsletter</a>
+    </nav>
+
+  </header>
+
+
+  <!-- =====================================
+       HERO
+  ====================================== -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>
+        Building Games.<br>
+        <span>Creating Experiences.</span>
+      </h1>
+
+      <p>
+        Whiff Studios is a small independent game and app development
+        studio built around creativity, technology, testing, learning,
+        and the experience of bringing new ideas to life.
+      </p>
+
+      <a class="button button-primary" href="#about">
+        Our Journey
+      </a>
+
+      <a class="button" href="#newsletter">
+        Join the Newsletter
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       FEATURE AREAS
+  ====================================== -->
+
+  <section class="features">
+
+    <div class="feature">
+      <div class="feature-icon">🎮</div>
+
+      <h2>What We're Building</h2>
+
+      <p>
+        Follow a small studio as we explore game development,
+        application development, design, testing, and new ideas.
+      </p>
+
+      <a href="#about">Learn More →</a>
+    </div>
+
+
+    <div class="feature">
+      <div class="feature-icon">✎</div>
+
+      <h2>Development Journal</h2>
+
+      <p>
+        We're documenting the process — the decisions, experiments,
+        mistakes, breakthroughs, and lessons learned along the way.
+      </p>
+
+      <a href="#journal">Read the Blog →</a>
+    </div>
+
+
+    <div class="feature">
+      <div class="feature-icon">✉</div>
+
+      <h2>Stay in the Loop</h2>
+
+      <p>
+        Get studio updates, development stories, and future project
+        announcements delivered directly to you.
+      </p>
+
+      <a href="#newsletter">Subscribe →</a>
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       ABOUT
+  ====================================== -->
+
+  <section class="about" id="about">
+
+    <div>
+
+      <h2>About Whiff Studios</h2>
+
+      <p>
+        Whiff Studios is a small independent studio exploring the
+        intersection of technology, game development, software quality,
+        creativity, and practical problem solving.
+      </p>
+
+      <p>
+        We're bringing years of professional technology experience into
+        something new: building games and applications from the ground up.
+      </p>
+
+      <p>
+        This site is where we'll share that journey as the studio,
+        our projects, and our ideas develop.
+      </p>
+
+    </div>
+
+
+    <div class="about-box">
+
+      <h3>Building in Public</h3>
+
+      <p>
+        Whiff Studios is still at the beginning of its story.
+      </p>
+
+      <p>
+        Rather than waiting until everything is finished, we're opening
+        the doors and sharing what we're learning while we build.
+      </p>
+
+      <p>
+        Follow along through the development journal and newsletter.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       DEVELOPMENT JOURNAL
+  ====================================== -->
+
+  <section class="journal" id="journal">
+
+    <h2 class="section-title">
+      Development Journal
+    </h2>
+
+    <p class="section-intro">
+      Notes from inside Whiff Studios as we learn, design, build, test,
+      and improve.
+    </p>
+
+
+    <div class="journal-grid">
+
+      <article class="journal-card">
+
+        <div class="journal-date">
+          COMING SOON
+        </div>
+
+        <h3>
+          Starting a Game Studio
+        </h3>
+
+        <p>
+          Why we created Whiff Studios and what we're hoping to build.
+        </p>
+
+        <a href="#">
+          Read More →
+        </a>
+
+      </article>
+
+
+      <article class="journal-card">
+
+        <div class="journal-date">
+          COMING SOON
+        </div>
+
+        <h3>
+          Learning Game Development
+        </h3>
+
+        <p>
+          Taking decades of technology experience into a completely
+          different kind of development environment.
+        </p>
+
+        <a href="#">
+          Read More →
+        </a>
+
+      </article>
+
+
+      <article class="journal-card">
+
+        <div class="journal-date">
+          COMING SOON
+        </div>
+
+        <h3>
+          Building With Quality in Mind
+        </h3>
+
+        <p>
+          How testing and quality practices influence the way we
+          approach game and application development.
+        </p>
+
+        <a href="#">
+          Read More →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       NEWSLETTER
+  ====================================== -->
+
+  <section class="newsletter" id="newsletter">
+
+    <h2>
+      Follow the Journey
+    </h2>
+
+    <p>
+      Whiff Studios is just getting started. Subscribe for development
+      updates, new articles, lessons learned, and future project news.
+    </p>
+
+
+    <!--
+      This form does NOT send emails yet.
+      Later we can connect it to a newsletter service.
+    -->
+
+    <div class="newsletter-form">
+
+      <input
+        type="email"
+        placeholder="Your email address"
+      >
+
+      <button type="button">
+        Subscribe
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       FOOTER
+  ====================================== -->
+
+  <footer>
+
+    <div class="footer-brand">
+      Whiff Studios
+    </div>
+
+    <div>
+      © 2026 Whiff Studios. All rights reserved.
+    </div>
+
+  </footer>
+
 </body>
 </html>
